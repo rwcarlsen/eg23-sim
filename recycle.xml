@@ -15,9 +15,32 @@
     <spec> <lib>cycamore</lib> <name>Sink</name></spec>
     <spec> <lib>cycamore</lib> <name>EnrichmentFacility</name> </spec>
     <spec> <lib>cycamore</lib> <name>Reactor</name> </spec>
+    <spec> <lib>cycamore</lib> <name>Storage</name> </spec>
     <spec> <lib>cycamore</lib> <name>FuelFab</name> </spec>
     <spec> <lib>cycamore</lib> <name>Separations</name> </spec>
   </archetypes>
+
+  <prototype>
+    <name>slow_storage</name>
+    <config>
+      <Storage>
+        <incommod>slow_spent</incommod>
+        <outcommod>slow_spent_stored</outcommod>
+        <wait_time>60</wait_time>
+      </Storage>
+    </config>
+  </prototype>
+
+  <prototype>
+    <name>fast_storage</name>
+    <config>
+      <Storage>
+        <incommod>fast_spent</incommod>
+        <outcommod>fast_spent_stored</outcommod>
+        <wait_time>60</wait_time>
+      </Storage>
+    </config>
+  </prototype>
 
   <prototype>
     <name>enrichment</name>
@@ -40,7 +63,7 @@
           <leftover_commod>waste</leftover_commod>
           <throughput>83333</throughput>
           <feedbuf_size>83333</feedbuf_size>
-          <feed_commods> <val>slow_spent</val> </feed_commods>
+          <feed_commods> <val>slow_spent_stored</val> </feed_commods>
 
           <streams>
               <commod>slow_pu</commod>
@@ -62,7 +85,7 @@
           <leftover_commod>waste</leftover_commod>
           <throughput>1e100</throughput>
           <feedbuf_size>1e100</feedbuf_size>
-          <feed_commods> <val>fast_spent</val> </feed_commods>
+          <feed_commods> <val>fast_spent_stored</val> </feed_commods>
 
           <streams>
               <commod>fast_pu</commod>
@@ -169,6 +192,8 @@
               <val>repo</val>
               <val>enrichment</val>
               <val>depleted_src</val>
+              <val>slow_storage</val>
+              <val>fast_storage</val>
           </prototypes>
 
           <build_times>
@@ -179,10 +204,14 @@
               <val>1</val>
               <val>1</val>
               <val>1</val>
+              <val>1</val>
+              <val>1</val>
           </build_times>
 
           <n_build>
               <val>2</val>
+              <val>1</val>
+              <val>1</val>
               <val>1</val>
               <val>1</val>
               <val>1</val>
