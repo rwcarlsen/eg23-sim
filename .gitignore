@@ -1,0 +1,4 @@
+*.sqlite
+*.tar.gz
+*.sw*
+*.dat
