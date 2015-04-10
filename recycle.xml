@@ -173,9 +173,9 @@
     <name>depleted_src</name>
     <config>
       <Source>
-        <out_commod>depleted_u</out_commod>
-        <recipe_name>depleted_u</recipe_name>
-        <capacity>1e100</capacity>
+        <outcommod>depleted_u</outcommod>
+        <outrecipe>depleted_u</outrecipe>
+        <throughput>1e100</throughput>
       </Source>
     </config>
   </prototype>
