@@ -8,6 +8,16 @@ case "$2" in
          WHERE a.prototype='$3'
          GROUP BY tl.time;"
 ;;
+"unfueled")
+    sql="SELECT time,COUNT(value) FROM timeseriespower where value = 0 group by time"
+;;
+"unfueled-proto")
+    sql="SELECT p.time,COUNT(a.prototype) FROM timeseriespower as p
+         JOIN agents AS a ON a.agentid = p.agentid
+         WHERE value = 0 AND a.prototype = '$3'
+         GROUP BY p.time;
+         "
+;;
 "protos")
     sql="SELECT Prototype FROM Prototypes;"
 ;;
@@ -83,6 +93,8 @@ fi
 if [[ $sql == "" ]]; then
     return 0;
 fi
+
+sqlite3 "$1" "CREATE INDEX IF NOT EXISTS ts_power_simid_time_agentid_value ON TimeSeriesPower (simid,time,agentid,value);"
 
 sqlite3 -separator '    ' "$1" "$sql"
 #fname=.$(uuidgen).dat
