@@ -1,21 +1,22 @@
 
-
-deployoptflow {
+digraph deployoptflow {
     natu [label="Natural U\nSource"];
     enrich [label="Enrichment"];
     therm [label="Thermal\nReactor"];
-    fastburn [label="Fast Burner\nReactor"];
-    fastbreed [label="Fast Breeder\nReactor"];
+    rank=same;
+    dusource [label="DU Source"];
+    fastburn [label="Fast Burner\nReactor", group="fast"];
+    fastbreed [label="Fast Breeder\nReactor", group="fast"];
     thermstore [label="Spent Thermal\nStorage"];
     burnstore [label="Spent Burner\nStorage"];
     breedstore [label="Spent Breeder\nStorage"];
-    dusource [label="DU Source"];
     thermfab [label="Thermal\nFuel Fab"];
     fastfab [label="Fast\nFuel Fab"];
     thermsep [label="Thermal\nSeparations"];
     burnsep [label="Burner\nSeparations"];
     breedsep [label="Breeder\nSeparations"];
     repo [label="Repository"];
+    
 
     natu -> enrich [label="natl. U"];
     enrich -> therm [label="fresh UOX"];
@@ -23,19 +24,21 @@ deployoptflow {
     enrich -> fastfab [label="DU"];
     dusource -> thermfab [label="DU"];
     dusource -> fastfab [label="DU"];
-    therm -> thermstore [label="thermal spent"];
-    thermstore -> thermsep [label="cooled thermal spent"];
-    thermsep -> fastfab [label="thermal fissile"];
-    thermsep -> repository [label="waste"];
+    therm -> thermstore [label="thermal\nspent"];
+    thermstore -> thermsep [label="cooled\nthermal spent"];
+    thermsep -> fastfab [label="thermal\nfissile"];
+    thermsep -> repo [label="waste"];
     thermfab -> therm [label="fresh MOX"];
-    breedsep -> thermfab [label="breeder fissile\n(fiss+topup)"];
-    breedsep -> fastfab [label="breeder fissile\n(fiss+topup)"];
+    breedsep -> thermfab [label="breeder fiss\n(+topup)"];
+    breedsep -> fastfab [label="breeder fiss\n(+topup)"];
     breedsep -> repo [label="waste"];
-    burnsep -> thermfab [label="burner fissile"];
-    burnsep -> fastfab [label="burner fissile"];
+    burnsep -> thermfab [label="burner\nfissile"];
+    burnsep -> fastfab [label="burner\nfissile"];
     burnsep -> repo [label="waste"];
-    fastbreed -> breedstore [label="breeder spent"];
-    fastburn -> burnstore [label="burner spent"];
-    burnstore -> burnsep [label="cooled burner spent"];
-    breedstore -> breedsep [label="cooled breeder spent"];
+    fastbreed -> breedstore [label="breeder\nspent"];
+    fastburn -> burnstore [label="burner\nspent"];
+    burnstore -> burnsep [label="cooled\nburner spent"];
+    breedstore -> breedsep [label="cooled\nbreeder spent"];
+    fastfab -> fastburn [label="burner fuel"];
+    fastfab -> fastbreed [label="breeder fuel"];
 }
