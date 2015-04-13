@@ -1,0 +1,41 @@
+
+
+deployoptflow {
+    natu [label="Natural U\nSource"];
+    enrich [label="Enrichment"];
+    therm [label="Thermal\nReactor"];
+    fastburn [label="Fast Burner\nReactor"];
+    fastbreed [label="Fast Breeder\nReactor"];
+    thermstore [label="Spent Thermal\nStorage"];
+    burnstore [label="Spent Burner\nStorage"];
+    breedstore [label="Spent Breeder\nStorage"];
+    dusource [label="DU Source"];
+    thermfab [label="Thermal\nFuel Fab"];
+    fastfab [label="Fast\nFuel Fab"];
+    thermsep [label="Thermal\nSeparations"];
+    burnsep [label="Burner\nSeparations"];
+    breedsep [label="Breeder\nSeparations"];
+    repo [label="Repository"];
+
+    natu -> enrich [label="natl. U"];
+    enrich -> therm [label="fresh UOX"];
+    enrich -> thermfab [label="DU"];
+    enrich -> fastfab [label="DU"];
+    dusource -> thermfab [label="DU"];
+    dusource -> fastfab [label="DU"];
+    therm -> thermstore [label="thermal spent"];
+    thermstore -> thermsep [label="cooled thermal spent"];
+    thermsep -> fastfab [label="thermal fissile"];
+    thermsep -> repository [label="waste"];
+    thermfab -> therm [label="fresh MOX"];
+    breedsep -> thermfab [label="breeder fissile\n(fiss+topup)"];
+    breedsep -> fastfab [label="breeder fissile\n(fiss+topup)"];
+    breedsep -> repo [label="waste"];
+    burnsep -> thermfab [label="burner fissile"];
+    burnsep -> fastfab [label="burner fissile"];
+    burnsep -> repo [label="waste"];
+    fastbreed -> breedstore [label="breeder spent"];
+    fastburn -> burnstore [label="burner spent"];
+    burnstore -> burnsep [label="cooled burner spent"];
+    breedstore -> breedsep [label="cooled breeder spent"];
+}
