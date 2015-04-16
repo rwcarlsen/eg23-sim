@@ -61,8 +61,8 @@
     <config>
       <Separations>
           <leftover_commod>waste</leftover_commod>
-          <throughput>83333</throughput>
-          <feedbuf_size>83333</feedbuf_size>
+          <throughput>833330</throughput>
+          <feedbuf_size>833330</feedbuf_size>
           <feed_commods> <val>slow_spent_stored</val> </feed_commods>
 
           <streams>

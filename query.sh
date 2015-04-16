@@ -9,7 +9,8 @@ case "$2" in
          GROUP BY tl.time;"
 ;;
 "unfueled")
-    sql="SELECT time,COUNT(value) FROM timeseriespower where value = 0 group by time"
+    sql="SELECT tl.time,ifnull(u.num, 0) from timelist as tl
+    left join (SELECT simid,time,COUNT(value) as num FROM timeseriespower where value = 0 group by time) as u ON tl.time=u.time and tl.simid=u.simid"
 ;;
 "unfueled-proto")
     sql="SELECT p.time,COUNT(a.prototype) FROM timeseriespower as p
