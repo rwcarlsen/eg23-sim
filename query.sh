@@ -53,7 +53,7 @@ case "$2" in
 "flow-proto-nuc")
     sql="SELECT tl.Time,IFNULL(sub.qty,0) FROM timelist as tl
          LEFT JOIN (
-            SELECT t.time as time,SUM(r.quantity) as qty FROM transactions as t
+            SELECT t.time as time,SUM(c.massfrac*r.quantity) as qty FROM transactions as t
             JOIN resources as r ON t.resourceid=r.resourceid AND r.simid=t.simid
             JOIN agents as send ON t.senderid=send.agentid AND send.simid=t.simid
             JOIN agents as recv ON t.receiverid=recv.agentid AND recv.simid=t.simid
@@ -74,14 +74,14 @@ case "$2" in
          "
 ;;
 "inv-proto-nuc")
-    sql="SELECT tl.Time,IFNULL(sub.qty,0) FROM timelist as tl
-         LEFT JOIN (SELECT tl.Time as time,TOTAL(inv.Quantity) AS qty FROM timelist as tl
+    sql="SELECT tl.Time,total(sub.qty) FROM timelist as tl
+         LEFT JOIN (SELECT tl.Time as time,c.nucid,TOTAL(c.massfrac*inv.Quantity) AS qty FROM timelist as tl
             JOIN inventories as inv on inv.starttime <= tl.time and inv.endtime > tl.time AND tl.simid=inv.simid
             JOIN compositions as c on c.qualid=inv.qualid AND c.simid=inv.simid
             JOIN agents as a on a.agentid=inv.agentid AND a.simid=inv.simid
             WHERE a.prototype='$3' AND c.NucId IN ($4)
-            GROUP BY tl.Time
-         ) AS sub ON sub.time=tl.time;
+            GROUP BY tl.Time,c.nucid
+         ) AS sub ON sub.time=tl.time GROUP BY tl.Time;
          "
 ;;
 esac
