@@ -24,7 +24,7 @@
       <Storage>
         <incommod>slow_spent</incommod>
         <outcommod>slow_spent_stored</outcommod>
-        <wait_time>60</wait_time>
+        <wait_time>84</wait_time>
       </Storage>
     </config>
   </prototype>
@@ -35,7 +35,7 @@
       <Storage>
         <incommod>fast_spent</incommod>
         <outcommod>fast_spent_stored</outcommod>
-        <wait_time>60</wait_time>
+        <wait_time>84</wait_time>
       </Storage>
     </config>
   </prototype>
@@ -60,8 +60,8 @@
     <config>
       <Separations>
           <leftover_commod>waste</leftover_commod>
-          <throughput>83333</throughput>
-          <feedbuf_size>107526.1</feedbuf_size>
+          <throughput>83333.3333</throughput>
+          <feedbuf_size>107537</feedbuf_size>
           <feed_commods> <val>slow_spent_stored</val> </feed_commods>
 
           <streams>
@@ -105,7 +105,7 @@
       <FuelFab>
         <fill_commod>depleted_u</fill_commod>
         <fill_recipe>depleted_u</fill_recipe>
-        <fill_size>1e10</fill_size>
+        <fill_size>1e100</fill_size>
 
         <fiss_commods><val>slow_pu</val><val>fast_pu</val></fiss_commods>
         <fiss_commod_prefs><val>1.0</val><val>2.0</val></fiss_commod_prefs>
@@ -130,7 +130,7 @@
 
         <cycle_time>18</cycle_time>
         <refuel_time>0</refuel_time>
-        <assem_size>29570</assem_size>
+        <assem_size>29565</assem_size>
         <n_assem_core>3</n_assem_core>
         <n_assem_batch>1</n_assem_batch>
         <power_cap>900</power_cap>
@@ -148,10 +148,10 @@
         <fuel_incommods>  <val>fast_fuel</val></fuel_incommods>
         <fuel_outcommods> <val>fast_spent</val></fuel_outcommods>
 
-        <cycle_time>22</cycle_time>
+        <cycle_time>14</cycle_time>
         <refuel_time>0</refuel_time>
-        <assem_size>12667</assem_size>
-        <n_assem_core>3</n_assem_core>
+        <assem_size>7490</assem_size>
+        <n_assem_core>5</n_assem_core>
         <n_assem_batch>1</n_assem_batch>
         <power_cap>360</power_cap>
       </Reactor>
@@ -255,7 +255,7 @@
       <basis>mass</basis>
       <nuclide><id>U235</id> <comp>.008</comp> </nuclide>
       <nuclide><id>U238</id> <comp>0.9268</comp></nuclide>
-      <nuclide><id>Pu239</id> <comp>0.013</comp></nuclide>
+      <nuclide><id>Pu239</id> <comp>0.012</comp></nuclide>
       <nuclide><id>Am241</id> <comp>0.0011</comp></nuclide>
 
       <nuclide> <id>La139</id> <comp>0.005866</comp> </nuclide>
