@@ -10,7 +10,7 @@
             "Life": 960
         }, {
             "Proto": "fast_reactor",
-            "BuildAfter": 180,
+            "BuildAfter": 420,
             "Cap": 360,
             "Life": 960
         }, {
