@@ -916,26 +916,26 @@
               <val>1</val>
           </build_times>
           <lifetimes>
-              <val>312</val>
-              <val>324</val>
-              <val>336</val>
-              <val>348</val>
-              <val>360</val>
-              <val>372</val>
-              <val>384</val>
-              <val>396</val>
-              <val>408</val>
-              <val>420</val>
-              <val>672</val>
-              <val>684</val>
-              <val>696</val>
-              <val>708</val>
-              <val>720</val>
-              <val>732</val>
-              <val>744</val>
-              <val>756</val>
-              <val>768</val>
-              <val>780</val>
+              <val>192</val>
+              <val>204</val>
+              <val>216</val>
+              <val>228</val>
+              <val>240</val>
+              <val>252</val>
+              <val>264</val>
+              <val>276</val>
+              <val>288</val>
+              <val>300</val>
+              <val>552</val>
+              <val>564</val>
+              <val>576</val>
+              <val>588</val>
+              <val>600</val>
+              <val>612</val>
+              <val>624</val>
+              <val>636</val>
+              <val>648</val>
+              <val>660</val>
           </lifetimes>
       </DeployInst>
     </config>
