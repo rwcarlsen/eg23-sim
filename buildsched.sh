@@ -9,5 +9,5 @@ tail -n+2 $1 | awk '$2 > 0 {printf "<val>%s</val>\n",$2} $3 > 0 {printf "<val>%s
 echo "</n_build>"
 
 echo "<build_times>"
-tail -n+2 $1 | awk '$2 > 0 {printf "<val>%d</val>\n",($1-2005)*12+1} $3 > 0 {printf "<val>%d</val>\n",($1-2005)*12+1}'
+tail -n+2 $1 | awk '$2 > 0 {printf "<val>%d</val>\n",($1-2015)*12+1} $3 > 0 {printf "<val>%d</val>\n",($1-2015)*12+1}'
 echo "</build_times>"
