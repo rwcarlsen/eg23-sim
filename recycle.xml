@@ -65,13 +65,15 @@
           <feed_commods> <val>slow_spent_stored</val> </feed_commods>
 
           <streams>
+            <item>
               <commod>slow_pu</commod>
               <info>
                   <buf_size>1e100</buf_size>
                   <efficiencies>
-                      <comp>Pu</comp> <eff>.99</eff>
+                      <item> <comp>Pu</comp> <eff>.99</eff> </item>
                   </efficiencies>
               </info>
+            </item>
           </streams>
       </Separations>
     </config>
@@ -87,13 +89,15 @@
           <feed_commods> <val>fast_spent_stored</val> </feed_commods>
 
           <streams>
+            <item>
               <commod>fast_pu</commod>
               <info>
                   <buf_size>1e100</buf_size>
                   <efficiencies>
-                      <comp>Pu</comp> <eff>.99</eff>
+                      <item> <comp>Pu</comp> <eff>.99</eff> </item>
                   </efficiencies>
               </info>
+            </item>
           </streams>
       </Separations>
     </config>
